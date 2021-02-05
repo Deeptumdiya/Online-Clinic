@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1 align="center">Today's Appointment</h1>
+<h2>Doctor Name :{{pat.dname}}</h2>
+<h2>Patient Name :{{pat.pname}}</h2>
+<h2>Date :{{pat.date}}</h2>
+<h2>Time :{{pat.time}}</h2>
+<form action="priscribed" method="post">
+{% csrf_token %}
+<input type="hidden" name="dname" value="{{pat.dname}}">
+<input type="hidden" name="pname" value="{{pat.pname}}">
+<input type="hidden" name="date" value="{{pat.date}}">
+<input type="hidden" name="time" value="{{pat.time}}">
+RX-<textarea rows="10" cols="21" name="pres">
+	
+</textarea>
+<input type="submit" value="PRISCRIBED" />
+</form>
+</body>
+</html>

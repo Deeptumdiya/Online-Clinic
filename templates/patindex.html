@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<title>New Patient</title>
+</head>
+<style>
+body {
+  
+	background-image: url({% static 'images/bg_3.jpg' %});
+	background-attachment: fixed;
+  	background-size: cover;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.sel {
+
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    width: 100%;
+    border: 0;
+    background: #f2f2f2;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+input[type=submit] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+<body>
+<div class="login-page">
+  <div class="form">
+    <form action="psignup" method="post" class="register-form">
+    {% csrf_token %}
+      <input type="text" name="name" placeholder="Name" required/>
+      <input type="email" name="email" placeholder="Email" required />
+	    <input type="password" name="password" placeholder="Password" required/>
+	    <input type="number" name="mob" placeholder="Mobile" required/>
+	    <select name='gen'  class="sel">
+        <option value="male">male</option>
+        <option value="female">female</option>
+        <option value="other">other</option>
+      </select>
+	    <input type="number" name="age" placeholder="Age" required />
+	Diseases<textarea rows="3" cols="21" name="dis" class="sel" required /></textarea>
+	<input type="submit" value="SIGN UP" >
+      <p class="message">Already registered? <a href="patindex">Sign In</a></p>
+    </form>
+  </div>
+</div>
+</body>
+
+</html>
